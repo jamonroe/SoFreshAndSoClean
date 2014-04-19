@@ -14,6 +14,7 @@ public class Process {
         calculateTimeToRun();
         this.id = id;
         r = new Random();
+        numCollisions = 0;
     }
 
     public boolean canRun() {
@@ -25,8 +26,8 @@ public class Process {
         if (collisionFound) {
             numCollisions++;
             calculateTimeToRun();
+            collisionFound = false;
         } else {
-
             decTime();
         }
 
@@ -50,7 +51,6 @@ public class Process {
         int k = (int) (Math.pow(2, numCollisions));
 
         timeToRun = r.nextInt(k);
-
     }
 
     public int getId() {
