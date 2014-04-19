@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Process {
 
 
@@ -7,11 +9,12 @@ public class Process {
     private int numCollisions; // this is n
     private boolean collisionFound = false;
     private int totalCount = 0;
+    private Random r; 
 
     public Process(int id) {
         calculateTimeToRun();
         this.id = id;
-
+        r = new Random();
     }
 
     
@@ -41,7 +44,7 @@ public class Process {
     public void calculateTimeToRun() {
         int k = (int) (Math.pow(2, numCollisions));
 
-        timeToRun = (int) (Math.random() * k);
+        timeToRun = r.nextInt(k);
 
     }
 
